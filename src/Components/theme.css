@@ -1,0 +1,23 @@
+/* src/Components/theme.css */
+body.light {
+    color: #000000;
+    background-color: white;
+  }
+  body.dark {
+    color: white;
+    background-color: darkgray;
+  }
+  body.light .ant-dropdown-menu {
+    color: black;
+  }
+  
+ 
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
