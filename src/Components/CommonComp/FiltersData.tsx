@@ -1,19 +1,29 @@
 import React from "react";
-import { type MovieItem } from "../Queries";
+import { useNavigate, useParams } from "react-router-dom";
+import type { MovieItem } from "../Queries";
 
-interface PassData {
-  data: MovieItem[];
+interface Props {
+  data?: {
+    results: MovieItem[];
+  };
 }
 
-const FiltersData: React.FC<PassData> = ({ data }) => {
+const FiltersData: React.FC<Props> = ({ data }) => {
+  const navigate = useNavigate();
+
+  const id = useParams();
+
+  console.log("the use PARAMS ID IS  ------------- ", id);
+
   return (
     <>
-      <div className="w-full h-full flex flex-nowrap overflow-x-scroll no-scrollbar gap-14 px-10 ">
+      <div className="w-full h-full flex flex-nowrap overflow-x-scroll no-scrollbar gap-14 px-10   ">
         {data?.data?.results.map((items: MovieItem) => (
           <div className="flex shrink-0 " key={items.id}>
-            <div className="w-full h-full  ">
+            <div className="w-full h-full   ">
               <img
-                className="w-60 h-100 rounded-xl object-cover  "
+                onClick={() => navigate(`/similar/${items.id}`)}
+                className="w-60 h-100 rounded-xl object-cover cursor-pointer  "
                 src={`https://image.tmdb.org/t/p/w1280${items.backdrop_path}`}
                 alt={`${items.title} Backdrop`}
               />

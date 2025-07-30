@@ -1,10 +1,13 @@
 import { useAllSeriesData, type MovieItem } from "../Queries";
 import { useState, useEffect } from "react";
 import { Spin } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function SeriesSeason() {
   const [page, setPage] = useState(1);
   const [allResults, setAllResults] = useState<MovieItem[]>([]);
+
+  const navigate = useNavigate();
 
   const { isPending, error, data } = useAllSeriesData(page);
 
@@ -15,7 +18,8 @@ function SeriesSeason() {
     if (data?.results && data.results.length > 0) {
       setAllResults((preResult) => {
         const newDataItem = data.results?.filter(
-          (item) => !preResult.some((preItem) => preItem.id == item.id)
+          (item: { id: number }) =>
+            !preResult.some((preItem) => preItem.id == item.id)
         );
 
         return [...newDataItem, ...preResult];
@@ -51,7 +55,8 @@ function SeriesSeason() {
             <div className="flex shrink-0" key={item.id}>
               <div className="w-full h-full">
                 <img
-                  className="w-60 h-80 rounded-xl object-cover"
+                  onClick={() => navigate(`/similar/${item.id}`)}
+                  className="w-60 h-80 rounded-xl object-cover cursor-pointer"
                   src={
                     item.backdrop_path
                       ? `https://image.tmdb.org/t/p/w1280${item.backdrop_path}`

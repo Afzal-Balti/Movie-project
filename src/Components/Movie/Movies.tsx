@@ -1,5 +1,5 @@
 import Navbar from "../Navbar/Navbar";
-import backgroundImage from "../../assets/Images/backgroundPic.jpg";
+import ImageHf from "../../assets/Images/imageHf.jpg";
 import { useState, type SetStateAction } from "react";
 import MovieComp from "./MovieComp";
 
@@ -9,39 +9,44 @@ interface MovieProps {
 }
 
 function Movies({ name }: MovieProps) {
-  const [list, setList] = useState("");
+  const [search, setSearch] = useState("");
 
   const handlechange = (e: { target: { value: SetStateAction<string> } }) => {
-    setList(e.target.value);
+    setSearch(e.target.value);
   };
 
   return (
     <>
-      <div className="w-full h-full ">
+      <div className="md:w-full md:h-full  w-full h-full">
         <Navbar />
         <div className="w-full relative ">
-          <div className="w-full opacity-40">
-            <img src={backgroundImage} className="w-full h-90 "></img>
+          <div className="w-full ">
+            <img
+              src={ImageHf}
+              className="md:w-full md:h-90  w-full h-full"
+            ></img>
           </div>
 
-          <h2 className="w-full font-bold absolute text-center inset-0 p-75 t text-3xl text-gray-100 text-shadow-lg/30  pointer-events-none">
+          <h2 className="md:w-full  max-md:hidden absolute text-center inset-0 p-75 t text-3xl text-gray-100 text-shadow-lg/30  pointer-events-none">
             {name || "Movies"}
           </h2>
 
           <div className="w-full flex justify-center mt-8">
-            <div className="w-100 h-12 bg-white rounded-full px-4 shadow-lg flex items-center justify-between">
+            <div className="md:w-100  w-60 md:h-12 h-10 bg-white rounded-full px-4 shadow-lg flex items-center justify-between">
               <input
                 type="text"
                 placeholder={`Search ${name || "Movies"}`}
-                value={list}
+                value={search}
                 onChange={handlechange}
                 className="flex-grow  font-quicksand px-3 text-xl bg-transparent outline-none text-gray-800 placeholder-gray-400"
               />
-              <i className="fas fa-search text-red-500 text-xl cursor-pointer" />
+              <div className="md: w-full max-md:hidden">
+                <i className="fas fa-search text-red-500 cursor-pointer " />
+              </div>
             </div>
           </div>
         </div>
-        <MovieComp  />
+        <MovieComp search={search} />
       </div>
     </>
   );

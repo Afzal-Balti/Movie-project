@@ -1,4 +1,3 @@
-
 import MovieApi from "../React-Query/MovieApi";
 import ReactQuery from "../React-Query/ReactQuery";
 import Series from "../React-Query/Series";

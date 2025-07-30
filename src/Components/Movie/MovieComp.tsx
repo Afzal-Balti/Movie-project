@@ -1,21 +1,34 @@
 import { useAllMovieData, type MovieItem } from "../Queries";
 import { useState, useEffect } from "react";
 import { Spin } from "antd";
+import { useNavigate } from "react-router-dom";
 
-function MovieComp() {
+interface ProspSearch {
+  search: string;
+}
+
+function MovieComp({ search }: ProspSearch) {
   const [page, setPage] = useState(1);
   const [allResults, setAllResults] = useState<MovieItem[]>([]);
 
-  const { isPending, error, data } = useAllMovieData(page);
+  const navigate = useNavigate();
+
+  const { isPending, error, data } = useAllMovieData(page, search);
 
   console.log("Query state:", { isPending, error, data });
   console.log("Accumulated results:", allResults);
 
   useEffect(() => {
+    setPage(1);
+    setAllResults([]);
+  }, [search]);
+
+  useEffect(() => {
     if (data?.results && data.results.length > 0) {
       setAllResults((preResult) => {
         const newDataItem = data.results?.filter(
-          (item) => !preResult.some((preItem) => preItem.id == item.id)
+          (item: { id: number }) =>
+            !preResult.some((preItem) => preItem.id == item.id)
         );
 
         return [...newDataItem, ...preResult];
@@ -49,9 +62,10 @@ function MovieComp() {
         {allResults.length > 0 ? (
           allResults.map((item: MovieItem) => (
             <div className="flex shrink-0" key={item.id}>
-              <div className="w-full h-full">
+              <div className="w-full h-full ">
                 <img
-                  className="w-60 h-80 rounded-xl object-cover"
+                  onClick={() => navigate(`/similar/${item.id}`)}
+                  className="w-60 h-80 rounded-xl object-cover cursor-pointer"
                   src={
                     item.backdrop_path
                       ? `https://image.tmdb.org/t/p/w1280${item.backdrop_path}`
@@ -71,9 +85,13 @@ function MovieComp() {
           <div className="text-center">No results found.</div>
         )}
 
-        <div className="w-full  text-center">
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          className="w-full  text-center"
+        >
           <button
-            className="w-32 h-12 mb-20 bg-red-600 font-quicksand text-white rounded-full cursor-pointer disabled:opacity-50"
+            className="w-32 h-12 mb-20 bg-red-600 hover:bg-red-400 font-quicksand text-white rounded-full cursor-pointer disabled:opacity-50"
             onClick={handlepage}
           >
             {isPending ? <Spin /> : "Load More"}

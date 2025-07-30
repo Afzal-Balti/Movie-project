@@ -3,11 +3,12 @@ import { Dropdown, Space } from "antd";
 import Brightness from "../../../assets/Images/brightness.png";
 import "../../../Components/theme.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { SunMedium } from "lucide-react";
 
 type Theme = "dark" | "light" | "system";
-const DropComp: React.FC = () => {
+const DropComp: React.FC = ({ scroll }) => {
   const [theme, setTheme] = useState<Theme>("light");
-  
+
   const getSystemTheme = (): "dark" | "light" => {
     if (
       window.matchMedia &&
@@ -40,20 +41,20 @@ const DropComp: React.FC = () => {
     {
       key: "1",
       label: "Light",
-      icon: <i className="fas fa-sun "></i>,
+      icon: <SunMedium className="w-5 h-5" />,
       onClick: () => setTheme("light"),
     },
 
     {
       key: "2",
       label: "Dark",
-      icon: <i className="fas fa-moon "></i>,
+      icon: <i className="fas fa-moon  "></i>,
       onClick: () => setTheme("dark"),
     },
     {
       key: "3",
       label: "System",
-      icon: <i className="fas fa-desktop"></i>,
+      icon: <i className="fas fa-desktop "></i>,
       onClick: () => setTheme("system"),
     },
   ];
@@ -64,7 +65,9 @@ const DropComp: React.FC = () => {
         {theme === "dark" ? (
           <i className="fas fa-moon"></i>
         ) : (
-          <img src={Brightness} className="w-6 h-6" alt="Theme toggle" />
+          <SunMedium
+            className={`w-7 h-7 ${scroll ? "text-black" : "text-white"}`}
+          />
         )}
       </Space>
     </Dropdown>
