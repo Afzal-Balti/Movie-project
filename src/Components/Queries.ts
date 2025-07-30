@@ -27,6 +27,7 @@ interface TrendingResponse {
   values: MovieItem[];
   page: number;
   total_pages: number;
+  search: string;
 }
 
 const getTrendingMovies = async () =>
@@ -129,23 +130,29 @@ export const useAllMovieData = (page: number, search: string) => {
 
 // Series ALL season Api is this
 
-const getAllSeries = async (page: number) => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=${page}`,
-    {
-      params: {
-        api_key: import.meta.env.VITE_API_KEY,
-      },
-    }
-  );
-  console.log("API response data:", response.data);
-  return response.data;
+const getAllSeries = async (page: number, search: string) => {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  let url = `https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=${page}&api_key=${apiKey}`;
+  if (search) {
+    url = `https://api.themoviedb.org/3/search/tv?language=en-US&page=${page}&api_key=${apiKey}&query=${encodeURIComponent(
+      search
+    )}`;
+  }
+
+  try {
+    const response = await axios.get(url);
+    console.log("API response data:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Api Request is Failed", error);
+    throw new Error("Failed to fetch series data");
+  }
 };
 
-export const useAllSeriesData = (page: number) => {
+export const useAllSeriesData = (page: number, search: string) => {
   return useQuery<TrendingResponse>({
-    queryKey: ["moviekey", page],
-    queryFn: () => getAllSeries(page),
+    queryKey: ["seriesKey", page, search],
+    queryFn: () => getAllSeries(page, search),
   });
 };
 

@@ -3,16 +3,25 @@ import { useState, useEffect } from "react";
 import { Spin } from "antd";
 import { useNavigate } from "react-router-dom";
 
-function SeriesSeason() {
+interface Props {
+  search: string;
+}
+
+function SeriesSeason({ search }: Props) {
   const [page, setPage] = useState(1);
   const [allResults, setAllResults] = useState<MovieItem[]>([]);
 
   const navigate = useNavigate();
 
-  const { isPending, error, data } = useAllSeriesData(page);
+  const { isPending, error, data } = useAllSeriesData(page, search);
 
   console.log("Query state:", { isPending, error, data });
   console.log("Accumulated results:", allResults);
+
+  useEffect(() => {
+    setPage(1);
+    setAllResults([]);
+  }, [search]);
 
   useEffect(() => {
     if (data?.results && data.results.length > 0) {

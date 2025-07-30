@@ -4,9 +4,9 @@ import { useState, type SetStateAction } from "react";
 import SeriesSeason from "./SeriesSeason";
 
 function SeriesTv() {
-  const [list, setList] = useState("");
+  const [search, setSearch] = useState("");
   const handlechange = (e: { target: { value: SetStateAction<string> } }) => {
-    setList(e.target.value);
+    setSearch(e.target.value);
   };
   return (
     <div>
@@ -26,7 +26,7 @@ function SeriesTv() {
               <input
                 type="text"
                 placeholder="Search Series Tv"
-                value={list}
+                value={search}
                 onChange={handlechange}
                 className="flex-grow  font-quicksand px-3 text-xl bg-transparent outline-none text-gray-800 placeholder-gray-400"
               />
@@ -37,7 +37,7 @@ function SeriesTv() {
           </div>
         </div>
       </div>
-      <SeriesSeason />
+      <SeriesSeason search={search} />
     </div>
   );
 }
