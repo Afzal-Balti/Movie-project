@@ -30,8 +30,9 @@ const FiltersData: React.FC<Props> = ({ data }) => {
                 alt={`${items.title} Backdrop`}
               />
 
-              <div className="m-4 text-center text-md ">
+              <div className="w-50 m-4 text-center text-md ">
                 <h3>{items.original_title}</h3>
+                <h3>{items.original_name}</h3>
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ function Series() {
 
   return (
     <>
-      <div className="w-full h-full p-15">
+      <div className="md:w-full md:h-full w-full h-full  md:p-15 p-15">
         <HeaderComp name="Trending series" />
         <FiltersData data={data} />
       </div>

@@ -80,7 +80,7 @@ function MovieComp({ search }: ProspSearch) {
                     item.original_name || item.title || "Movie"
                   } Backdrop`}
                 />
-                <div className="m-4 text-center text-md">
+                <div className="  w-50  m-4 overflow-x-hidden text-center text-md">
                   <h3>{item.original_name || item.title || "Untitled"}</h3>
                 </div>
               </div>
