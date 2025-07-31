@@ -6,7 +6,7 @@ import Layout from "./Components/Layout/Layout";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import SimilarMovie from "./Components/React-Query/SimilarMovie";
+import SimilarMovie from "./Components/Movies_Api/SimilarMovie";
 import SkeletonCard from "./Components/Sekeleton/Sekeleton";
 
 function App() {

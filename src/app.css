@@ -1,4 +1,98 @@
 @import "tailwindcss";
-/* @custom-variant dark (&:where(.dark, .dark *));
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
 
+
+
+body.light {
+    color: #000000;
+    background-color: white;
+  }
+  body.dark {
+    color: white;
+    background-color :grey;
+  }
+  body.light .ant-dropdown-menu {
+    color: black;
+  }
+
+  .ant-menu-overflow{
+     /* background-color: none !important; */
+  }
+
+  :where(.css-dev-only-do-not-override-7t2xvq).ant-menu-light {
+    background-color: none !important;
+  }
+
+  body.light {
+    background-color: none;
+  }
+
+  :where(.css-dev-only-do-not-override-7t2xvq).ant-menu-light {
+    background-color: none !important;
+    background: none;
+    border-bottom: none;
+    box-shadow: none
+  }
+
+  .anticon svg{
+    color : white
+    
+  }
+
+  :where(.css-dev-only-do-not-override-7t2xvq).ant-menu .ant-menu-item-group .ant-menu-item-group-list {
+  
+    width: 100px;
+    text-align: center;
+  }
+
+  body.light .ant-dropdown-menu {
+    color: black;
+    width: 100px;
+    padding-top: 10px;
+    font-size: 80px;
+ 
+  
+    margin-top: 5px;
+    margin-left: 10px;
+
+  }
+
+  body.dark .ant-dropdown-menu {
+    color: black;
+    width: 100px;
+    padding-top: 10px;
+    font-size: 80px;
+ 
+  
+    margin-top: 5px;
+    margin-left: 10px;
+
+  }
+  
+
+  body.navbar {
+    background-color: greenyellow;
+  }
+  
+ 
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+
+
+body.navbarone {
+  background-color: yellow;
+  transition: background-color 0.5s ease; /* Smooth transition */
+}
+
+body.navbar.scrolled {
+  background-color: #df0404; /* Example solid color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}

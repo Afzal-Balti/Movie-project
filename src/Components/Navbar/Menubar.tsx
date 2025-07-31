@@ -8,7 +8,7 @@ type MenuItem = Required<MenuProps>["items"][number];
 const items: MenuItem[] = [
   {
     key: "SubMenu",
-    icon: <MenuOutlined className="w-0" />,
+    icon: <MenuOutlined className="w-full" />,
     children: [
       {
         type: "group",
@@ -29,9 +29,7 @@ const MenuBar: React.FC = () => {
     navigate(e.key);
   };
 
-  return (
-    <Menu onClick={handleClick} style={{}} mode="horizontal" items={items} />
-  );
+  return <Menu onClick={handleClick} mode="horizontal" items={items} />;
 };
 
 export default MenuBar;

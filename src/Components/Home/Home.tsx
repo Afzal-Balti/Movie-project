@@ -1,8 +1,8 @@
-import MovieApi from "../React-Query/MovieApi";
-import ReactQuery from "../React-Query/ReactQuery";
-import Series from "../React-Query/Series";
-import TopMovie from "../React-Query/TopMovie";
-import Trending from "../React-Query/Trending";
+import MovieApi from "../Movies_Api/MovieApi";
+import ReactQuery from "../Movies_Api/ReactQuery";
+import Series from "../Movies_Api/Series";
+import TopMovie from "../Movies_Api/TopMovie";
+import Trending from "../Movies_Api/Trending";
 
 function Home() {
   return (

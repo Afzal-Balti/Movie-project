@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown, Space } from "antd";
-import "../../../Components/theme.css";
+import "../../../app.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { SunMedium } from "lucide-react";
+import { MoonStar, SunMedium } from "lucide-react";
 
 interface propsScroll {
   scroll: boolean;
@@ -51,7 +51,7 @@ const DropComp: React.FC<propsScroll> = ({ scroll }) => {
     {
       key: "2",
       label: "Dark",
-      icon: <i className="fas fa-moon  "></i>,
+      icon: <i className={`fas fa-moon `}></i>,
       onClick: () => setTheme("dark"),
     },
     {
@@ -66,7 +66,9 @@ const DropComp: React.FC<propsScroll> = ({ scroll }) => {
     <Dropdown menu={{ items }} trigger={["click"]} placement="bottomRight">
       <Space className="cursor-pointer">
         {theme === "dark" ? (
-          <i className="fas fa-moon"></i>
+          <MoonStar
+            className={`w-7 h-7 ${scroll ? "text-black" : "text-white"}`}
+          />
         ) : (
           <SunMedium
             className={`w-7 h-7 ${scroll ? "text-black" : "text-white"}`}

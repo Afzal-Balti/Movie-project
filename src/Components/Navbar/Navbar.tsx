@@ -2,11 +2,24 @@ import { NavLink } from "react-router-dom";
 import DropComp from "./Dropdown/Dropdown";
 import Logo from "../../assets/Images/LogoPic.png";
 import MenuBar from "./Menubar";
-import "../theme.css";
+import "../../app.css";
 import { useEffect, useState } from "react";
 
 function Navbar() {
   const [scroll, setScroll] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(window.innerWidth > 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShow(window.innerWidth > 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +32,7 @@ function Navbar() {
 
   return (
     <div
-      className={`fixed top-0 md:w-full w-full  md:h-22 min-h-0 z-10
+      className={`navbarone fixed top-0 md:w-full w-full  md:h-22 min-h-0 z-10
           ${scroll ? "bg-gray-100" : "bg-none"}
     `}
     >
@@ -37,36 +50,44 @@ function Navbar() {
             tMovies
           </p>
         </div>
-        <div className="flex md:flex-row   md:gap-10 gap-0 max-md:hidden  ">
-          <div
-            className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
-              scroll ? "text-2xl  text-gray-600" : "text-white text-2xl"
-            }`}
-          >
-            <NavLink to="/">Home</NavLink>
-          </div>
-          <div
-            className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
-              scroll ? "text-2xl text-gray-600" : "text-2xl text-white"
-            }`}
-          >
-            <NavLink to="/movies">Movies</NavLink>
-          </div>
-          <div
-            className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
-              scroll ? "text-2xl text-gray-600" : "text-2xl text-white"
-            }`}
-          >
-            <NavLink to="/tvseries">Tv Series</NavLink>
-          </div>
 
-          <div>
-            <DropComp scroll={scroll} />
+        {show ? (
+          <div className="flex md:flex-row   md:gap-10 gap-0   ">
+            <div
+              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
+                scroll ? "text-2xl  text-gray-600" : "text-white text-2xl"
+              }`}
+            >
+              <NavLink to="/">Home</NavLink>
+            </div>
+            <div
+              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
+                scroll ? "text-2xl text-gray-600" : "text-2xl text-white"
+              }`}
+            >
+              <NavLink to="/movies">Movies</NavLink>
+            </div>
+            <div
+              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
+                scroll ? "text-2xl text-gray-600" : "text-2xl text-white"
+              }`}
+            >
+              <NavLink to="/tvseries">Tv Series</NavLink>
+            </div>
+
+            <div>
+              <DropComp scroll={scroll} />
+            </div>
           </div>
-        </div>
-        <div className=" md:hidden  cursor-pointer ">
-          <MenuBar />
-        </div>
+        ) : (
+          <div
+            className={` anticon svg md:hidden  cursor-pointe ${
+              scroll ? "" : "text-white"
+            }`}
+          >
+            <MenuBar />
+          </div>
+        )}
       </div>
     </div>
   );

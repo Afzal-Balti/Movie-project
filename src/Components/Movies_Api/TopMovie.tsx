@@ -7,7 +7,7 @@ function TopMovie() {
   const { isPending, error, data } = useTrendingMovie();
   console.log("Top Movie api   is  ------------ ", data);
 
-  if (isPending) return  <SkeletonCard />;
+  if (isPending) return <SkeletonCard />;
 
   if (error) return "An error has occurred: " + error.message;
 

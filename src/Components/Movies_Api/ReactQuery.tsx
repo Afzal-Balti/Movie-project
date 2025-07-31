@@ -1,8 +1,6 @@
 import axios from "axios";
 import { Carousel } from "antd";
 import { useQuery } from "@tanstack/react-query";
-import "@fontsource/nunito/400.css";
-import "@fontsource/nunito/700.css";
 import "@fontsource/quicksand/400.css";
 import "@fontsource/quicksand/700.css";
 import SkeletonCard from "../Sekeleton/Sekeleton";
