@@ -2,6 +2,7 @@ import { useAllMovieData, type MovieItem } from "../Queries";
 import { useState, useEffect } from "react";
 import { Spin } from "antd";
 import { useNavigate } from "react-router-dom";
+import SkeletonCard from "../Sekeleton/Sekeleton";
 
 interface ProspSearch {
   search: string;
@@ -44,7 +45,11 @@ function MovieComp({ search }: ProspSearch) {
   };
 
   if (isPending && page === 1) {
-    return <div className="text-center">Loading...</div>;
+    return (
+      <div className="text-center">
+        <SkeletonCard />
+      </div>
+    );
   }
 
   if (error) {
@@ -69,7 +74,7 @@ function MovieComp({ search }: ProspSearch) {
                   src={
                     item.backdrop_path
                       ? `https://image.tmdb.org/t/p/w1280${item.backdrop_path}`
-                      : "https://via.placeholder.com/1280x720?text=No+Image"
+                      : `${(<SkeletonCard />)}`
                   }
                   alt={`${
                     item.original_name || item.title || "Movie"

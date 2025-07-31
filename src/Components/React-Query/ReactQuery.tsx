@@ -5,6 +5,7 @@ import "@fontsource/nunito/400.css";
 import "@fontsource/nunito/700.css";
 import "@fontsource/quicksand/400.css";
 import "@fontsource/quicksand/700.css";
+import SkeletonCard from "../Sekeleton/Sekeleton";
 
 const API_KEY = "ac7eb1ed292e01b471b7950409fa929f";
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -30,7 +31,7 @@ const ReactQuery = () => {
       }),
   });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <SkeletonCard />;
 
   if (error) return "An error has occurred: " + error.message;
 

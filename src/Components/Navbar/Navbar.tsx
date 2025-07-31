@@ -64,7 +64,7 @@ function Navbar() {
             <DropComp scroll={scroll} />
           </div>
         </div>
-        <div className=" md:hidden cursor-pointer ">
+        <div className=" md:hidden  cursor-pointer ">
           <MenuBar />
         </div>
       </div>

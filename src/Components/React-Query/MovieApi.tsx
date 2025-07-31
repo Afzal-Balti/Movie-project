@@ -1,6 +1,7 @@
 import { useMoiveData, type MovieItem } from "../Queries";
 import HeaderComp from "../CommonComp/HeaderComp";
 import FiltersData from "../CommonComp/FiltersData";
+import SkeletonCard from "../Sekeleton/Sekeleton";
 
 interface MovieData {
   results: MovieItem[];
@@ -9,7 +10,7 @@ interface MovieData {
 const MovieApi = () => {
   const { isPending, error, data } = useMoiveData<MovieData>();
 
-  if (isPending) return "Loading...";
+  if (isPending) return <SkeletonCard />;
 
   if (error) return "An error has occurred: " + error.message;
 

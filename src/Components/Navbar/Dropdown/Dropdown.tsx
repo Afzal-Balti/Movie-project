@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown, Space } from "antd";
-import Brightness from "../../../assets/Images/brightness.png";
 import "../../../Components/theme.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { SunMedium } from "lucide-react";
 
+interface propsScroll {
+  scroll: boolean;
+}
+
 type Theme = "dark" | "light" | "system";
-const DropComp: React.FC = ({ scroll }) => {
+const DropComp: React.FC<propsScroll> = ({ scroll }) => {
   const [theme, setTheme] = useState<Theme>("light");
 
   const getSystemTheme = (): "dark" | "light" => {

@@ -4,6 +4,7 @@ import {
   useSimilarMovies,
   type MovieItem,
 } from "../Queries";
+import SkeletonCard from "../Sekeleton/Sekeleton";
 
 function SimilarMovie() {
   const { id } = useParams();
@@ -27,7 +28,7 @@ function SimilarMovie() {
 
   // MOVIE DETALIED
 
-  if (isDetailLoading) return "Loading......";
+  if (isDetailLoading) return  <SkeletonCard />;
 
   if (detailError) return "An error has occurred: " + detailError.message;
 

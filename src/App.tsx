@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import SimilarMovie from "./Components/React-Query/SimilarMovie";
+import SkeletonCard from "./Components/Sekeleton/Sekeleton";
 
 function App() {
   useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
           <Route path="movies" element={<Movies name={""} page={0} />} />
           <Route path="tvseries" element={<SeriesTv />} />
           <Route path="similar/:id" element={<SimilarMovie />} />
+          <Route path="sekleton" element={<SkeletonCard />} />
         </Route>
       </Routes>
     </div>
