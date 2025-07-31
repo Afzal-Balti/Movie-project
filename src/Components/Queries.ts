@@ -15,6 +15,7 @@ export type MovieItem = {
 };
 
 interface TrendingResponse {
+  results: [];
   production_companies: string;
   logo_path: string;
   genres: string;
@@ -28,6 +29,37 @@ interface TrendingResponse {
   page: number;
   total_pages: number;
   search: string;
+}
+
+interface Genre {
+  id: number;
+  name: string;
+}
+
+interface ProductionCompany {
+  id: number;
+  name: string;
+  logo_path: string | null;
+}
+
+interface Video {
+  id: string;
+  name: string;
+  key: string;
+}
+
+interface MovieDetail {
+  id: number;
+  original_title: string;
+  title: string;
+  backdrop_path: string | null;
+  poster_path: string | null;
+  overview: string;
+  genres: Genre[];
+  production_companies: ProductionCompany[];
+  videos?: {
+    results: Video[];
+  };
 }
 
 const getTrendingMovies = async () =>
@@ -158,11 +190,11 @@ export const useAllSeriesData = (page: number, search: string) => {
 
 // SIMILAR ALL MOIVES
 
-const getAllSimilarMovies = async (id: number) => {
+const getAllSimilarMovies = async (id: number, page: number) => {
   console.log("THE VALUE OF SIMILAR DATA IS --------------- ", id);
 
   const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=${page}`,
     {
       params: {
         api_key: import.meta.env.VITE_API_KEY,
@@ -175,9 +207,9 @@ const getAllSimilarMovies = async (id: number) => {
 };
 
 export const useSimilarMovies = (id: number, page: number) => {
-  return useQuery<TrendingResponse>({
+  return useQuery<{ results: MovieItem[]; page: number; total_page: number }>({
     queryKey: ["similarKey", id, page],
-    queryFn: () => getAllSimilarMovies(id),
+    queryFn: () => getAllSimilarMovies(id, page),
   });
 };
 
@@ -203,7 +235,7 @@ const getAllMoviesDetail = async (id: number) => {
 };
 
 export const useAllMovieDetail = (id: number) => {
-  return useQuery<TrendingResponse>({
+  return useQuery<MovieDetail>({
     queryKey: ["similarKey", id],
     queryFn: () => getAllMoviesDetail(id),
   });

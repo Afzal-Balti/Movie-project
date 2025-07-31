@@ -1,14 +1,10 @@
-import { useMoiveData, type MovieItem } from "../Queries";
+import { useMoiveData } from "../Queries";
 import HeaderComp from "../CommonComp/HeaderComp";
 import FiltersData from "../CommonComp/FiltersData";
 import SkeletonCard from "../Sekeleton/Sekeleton";
 
-interface MovieData {
-  results: MovieItem[];
-}
-
 const MovieApi = () => {
-  const { isPending, error, data } = useMoiveData<MovieData>();
+  const { isPending, error, data } = useMoiveData();
 
   if (isPending) return <SkeletonCard />;
 

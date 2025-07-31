@@ -6,20 +6,28 @@ import {
 } from "../Queries";
 import SkeletonCard from "../Sekeleton/Sekeleton";
 
+interface Params {
+  id: string;
+  [key: string]: string | undefined;
+}
+
 function SimilarMovie() {
-  const { id } = useParams();
+  const { id } = useParams<Params>();
+  const numericId = Number(id);
+  const page = 1;
 
   console.log("THE USE PARAMS ID  DATA IS RENDER -------------------- ", id);
   const {
     data: similarMovies,
     isPending: isSimilarLoading,
     error: similarError,
-  } = useSimilarMovies(id);
+  } = useSimilarMovies(numericId, page);
+
   const {
     data: movieDetail,
     isPending: isDetailLoading,
     error: detailError,
-  } = useAllMovieDetail(id);
+  } = useAllMovieDetail(numericId);
   if (isSimilarLoading) return "Loading......";
 
   if (similarError) return "An error has occurred: " + similarError.message;
@@ -28,7 +36,7 @@ function SimilarMovie() {
 
   // MOVIE DETALIED
 
-  if (isDetailLoading) return  <SkeletonCard />;
+  if (isDetailLoading) return <SkeletonCard />;
 
   if (detailError) return "An error has occurred: " + detailError.message;
 
@@ -70,7 +78,7 @@ function SimilarMovie() {
               {movieDetail.overview}
             </p>
             <div className="w-full flex flex-row gap-10">
-              {movieDetail.production_companies.map((item) => (
+              {movieDetail.production_companies?.map((item) => (
                 <div className="w-10 h-10 ">
                   <img
                     className=" rounded-full "
@@ -139,5 +147,3 @@ function SimilarMovie() {
 }
 
 export default SimilarMovie;
-
-// 'https://api.themoviedb.org/3/movie/movie_id/similar?language=en-US&page=1'

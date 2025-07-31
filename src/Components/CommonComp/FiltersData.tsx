@@ -4,7 +4,9 @@ import type { MovieItem } from "../Queries";
 
 interface Props {
   data?: {
-    results: MovieItem[];
+    data: {
+      results: MovieItem[];
+    };
   };
 }
 
