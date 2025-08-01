@@ -53,7 +53,7 @@ const MenuBar: React.FC = () => {
         onClick={handleClick}
         mode="horizontal"
         items={items}
-        className="border-none"
+        className="border-none bg-transparent"
       />
     </div>
   );

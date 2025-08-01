@@ -7,7 +7,7 @@ function Footer() {
       <div className="w-full relative md:mt-20 mt-0 ">
         <img src={ImageFooter} className="w-full h-150 "></img>
 
-        <div className="w-full justify-items-center  md:py-20 text-center  absolute inset-0 ">
+        <div className="w-full md:justify-items-center justify-items-center  md:py-20 text-center  absolute inset-0 ">
           <div className="flex md:flex-row   md:gap-3 gap-3 md:py-4 py-10">
             <img
               src={LogoPic}
