@@ -53,17 +53,17 @@ const ReactQuery = () => {
               </h2>
               <p
                 data-aos="fade-down"
-                className="md:w-full w-80% overflow-y-hidden mt-10 text-xl "
+                className="md:w-full w-full md:h-full h-40  overflow-y-hidden mt-10 text-xl "
               >
                 {movie.overview}
               </p>
             </div>
             <div
               data-aos="zoom-in-down"
-              className="w-full  absolute inset-40  px-[40%]  "
+              className="w-full max-md:hidden absolute inset-40  px-[40%]  "
             >
               <img
-                className="w-full h-auto rounded-2xl justify-end"
+                className="md:w-full w-full  h-auto rounded-2xl justify-end"
                 src={`  https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
               />
             </div>

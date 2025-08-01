@@ -12,6 +12,8 @@ type Theme = "dark" | "light" | "system";
 const DropComp: React.FC<propsScroll> = ({ scroll }) => {
   const [theme, setTheme] = useState<Theme>("light");
 
+  console.log("the theme is -------------- ", theme);
+
   const getSystemTheme = (): "dark" | "light" => {
     if (
       window.matchMedia &&
@@ -51,7 +53,7 @@ const DropComp: React.FC<propsScroll> = ({ scroll }) => {
     {
       key: "2",
       label: "Dark",
-      icon: <i className={`fas fa-moon `}></i>,
+      icon: <MoonStar className="w-5 h-5" />,
       onClick: () => setTheme("dark"),
     },
     {

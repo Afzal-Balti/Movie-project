@@ -48,15 +48,15 @@ function SimilarMovie() {
     <div>
       <div key={movieDetail.id} className="relative w-full h-screen">
         <img
-          className="w-full h-full object-cover object-center "
+          className="md:w-full w-full md:h-full h-full object-cover object-center "
           src={`https://image.tmdb.org/t/p/w1280${movieDetail.backdrop_path}`}
           alt={`${movieDetail.title} Backdrop`}
         />
 
-        <div className="w-full  ">
+        <div className="md:w-full w-60  ">
           <div
             data-aos="fade-down"
-            className="md:w-1/2 mx-[30%] md:h-1/2 h-full w-full absolute -inset-0  p-25 md:mt-50  text-white "
+            className="md:w-1/2  md:mx-[30%] mx-0 md:h-1/2 h-full w-full absolute -inset-0  md:p-25 p-5 md:mt-50 mt-16 overflow-y-hidden overflow-x-hidden text-white "
           >
             <h2 className="sm:text-4xl xs:text-3xl text-[28.75px] font-extrabold sm:leading-[1.2] xs:leading-normal leading-snug text-secColor sm:max-w-[420px] xs:max-w-[320px] max-w-[280px]">
               {movieDetail.original_title}
@@ -92,7 +92,7 @@ function SimilarMovie() {
 
           <div
             data-aos="zoom-in-down "
-            className="w-80 h-40  absolute inset-60  "
+            className="md:w-80 md:h-40 max-md:hidden  absolute inset-60  "
           >
             <img
               className="w-full h-auto rounded-2xl justify-end"
@@ -102,10 +102,12 @@ function SimilarMovie() {
         </div>
       </div>
 
-      <div className="w-full h-auto ">
+      <div className="md:w-full w-full md:h-auto  h-auto ">
         {movieDetail.videos?.results.map((item) => (
-          <div className="w-full py-10 p-80 justify-center  ">
-            <p className="font-quicksand text-3xl py-3">{item.name}</p>
+          <div className="md:w-full w-full  md:py-10  py-5 md:p-80 p-8 justify-center  ">
+            <p className="font-quicksand md:w-full w-50 md:text-3xl text-xl  md:py-3 py-2">
+              {item.name}
+            </p>
             <iframe
               width="100%"
               height="100%"
@@ -116,7 +118,7 @@ function SimilarMovie() {
         ))}
       </div>
 
-      <div className="w-full h-full flex flex-wrap overflow-x-scroll no-scrollbar gap-14 p-14   ">
+      <div className="w-full h-full flex flex-wrap overflow-x-scroll no-scrollbar gap-14 md:p-14 p-22   ">
         <h2 className="w-full mt-24 font-bold text-2xl font-quicksand hover:underline decoration-red-500 decoration-6  cursor-pointer">
           Similar Movies
         </h2>
@@ -129,7 +131,7 @@ function SimilarMovie() {
                 alt={`${items.title} Backdrop`}
               />
 
-              <div className="m-4 text-center text-md ">
+              <div className=" md:w-full w-50 m-4 text-center text-md ">
                 <h3>{items.original_title}</h3>
               </div>
               <div data-aos="" className="w-full   ">

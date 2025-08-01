@@ -25,7 +25,7 @@ const FiltersData: React.FC<Props> = ({ data }) => {
             <div className="w-full h-full   ">
               <img
                 onClick={() => navigate(`/similar/${items.id}`)}
-                className="w-60 h-100 rounded-xl object-cover cursor-pointer  "
+                className="md:w-60 md:h-100 w-60 h-100 rounded-xl object-cover cursor-pointer  "
                 src={`https://image.tmdb.org/t/p/w1280${items.backdrop_path}`}
                 alt={`${items.title} Backdrop`}
               />

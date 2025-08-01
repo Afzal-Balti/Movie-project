@@ -32,18 +32,18 @@ function Navbar() {
 
   return (
     <div
-      className={`navbarone fixed top-0 md:w-full w-full  md:h-22 min-h-0 z-10
+      className={`navbarone fixed  md:w-full w-full  md:h-22 h-14 z-10
           ${scroll ? "bg-gray-100" : "bg-none"}
     `}
     >
-      <div className=" md:w-full w-full flex md:flex-row justify-between md:pr-25 pr-10 md:pl-25 pl-10 md:p-8 p-4">
+      <div className=" md:w-full w-full flex md:flex-row justify-between  md:pr-25 pr-10 md:pl-25 pl-10 md:p-8 p-2">
         <div className=" md:-mt-2 mt-3 flex md:flex-row md:gap-3 gap-3">
           <img
             src={Logo}
             className="md:w-11 w-6 md:h-10 h-6 cursor-pointer "
           ></img>
           <p
-            className={`md:text-2xl md:py-1 py-0 cursor-pointer font-normal ${
+            className={`md:text-2xl text-xl md:py-1 py-0 cursor-pointer font-normal ${
               scroll ? "text-black text-2xl" : "text-2xl text-white"
             }`}
           >
@@ -82,7 +82,7 @@ function Navbar() {
         ) : (
           <div
             className={` anticon svg md:hidden  cursor-pointe ${
-              scroll ? "" : "text-white"
+              scroll ? "text-black" : "text-white"
             }`}
           >
             <MenuBar />
