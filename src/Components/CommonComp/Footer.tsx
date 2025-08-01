@@ -8,7 +8,7 @@ function Footer() {
         <img src={ImageFooter} className="w-full h-150 "></img>
 
         <div className="w-full md:justify-items-center justify-items-center  md:py-20 text-center  absolute inset-0 ">
-          <div className="flex md:flex-row   md:gap-3 gap-3 md:py-4 py-10">
+          <div className="flex md:flex-row  justify-center md:gap-3 gap-3 md:py-4 py-10">
             <img
               src={LogoPic}
               className="md:w-10 w-7 md:h-10 h-8 cursor-pointer rounded-full"
