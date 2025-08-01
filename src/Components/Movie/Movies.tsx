@@ -38,7 +38,7 @@ function Movies({ name }: MovieProps) {
                 placeholder={`Search ${name || "Movies"}`}
                 value={search}
                 onChange={handlechange}
-                className="flex-grow  font-quicksand px-3 text-xl bg-transparent outline-none text-gray-800 placeholder-gray-400"
+                className="flex-grow  font-quicksand  bg-transparent outline-none text-gray-800 placeholder-gray-400"
               />
               <div className="md: w-full max-md:hidden">
                 <i className="fas fa-search text-red-500 cursor-pointer " />

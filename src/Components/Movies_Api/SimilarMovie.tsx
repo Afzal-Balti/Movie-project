@@ -73,13 +73,13 @@ function SimilarMovie() {
             }
             <p
               data-aos="fade-down"
-              className="md:w-full overflow-y-hidden text-xl py-10 "
+              className="md:w-full overflow-y-hidden text-xl md:py-10 py-0 "
             >
               {movieDetail.overview}
             </p>
             <div className="w-full flex flex-row gap-10">
               {movieDetail.production_companies?.map((item) => (
-                <div className="w-10 h-10 ">
+                <div className="md:w-10 w-12 md:h-10 h-12 overflow-y-hidden ">
                   <img
                     className=" rounded-full "
                     src={`https://image.tmdb.org/t/p/w1280${item.logo_path}`}
@@ -118,7 +118,7 @@ function SimilarMovie() {
         ))}
       </div>
 
-      <div className="w-full h-full flex flex-wrap overflow-x-scroll no-scrollbar gap-14 md:p-14 p-22   ">
+      <div className="w-full h-full flex flex-wrap overflow-x-scroll no-scrollbar gap-14 md:p-14 md:px-20 px-14  ">
         <h2 className="w-full mt-24 font-bold text-2xl font-quicksand hover:underline decoration-red-500 decoration-6  cursor-pointer">
           Similar Movies
         </h2>
@@ -126,7 +126,7 @@ function SimilarMovie() {
           <div className="flex shrink-0 " key={items.id}>
             <div className="w-full h-full">
               <img
-                className="w-60 h-100 rounded-xl object-cover cursor-pointer  "
+                className="md:w-60 w-64 h-100 rounded-xl object-cover cursor-pointer  "
                 src={`https://image.tmdb.org/t/p/w1280${items.backdrop_path}`}
                 alt={`${items.title} Backdrop`}
               />
@@ -136,7 +136,7 @@ function SimilarMovie() {
               </div>
               <div data-aos="" className="w-full   ">
                 <img
-                  className="w-60 h-100 rounded-xl object-cover cursor-pointer  justify-end"
+                  className="md:w-60 w-64 h-100 rounded-xl object-cover cursor-pointer  justify-end"
                   src={`https://image.tmdb.org/t/p/w1280${items.poster_path}`}
                 />
               </div>

@@ -19,13 +19,13 @@ const FiltersData: React.FC<Props> = ({ data }) => {
 
   return (
     <>
-      <div className="w-full h-full flex flex-nowrap overflow-x-scroll no-scrollbar gap-14 px-10   ">
+      <div className="w-full h-full flex flex-nowrap overflow-x-scroll no-scrollbar gap-14 md:px-10 px-2   ">
         {data?.data?.results.map((items: MovieItem) => (
           <div className="flex shrink-0 " key={items.id}>
             <div className="w-full h-full   ">
               <img
                 onClick={() => navigate(`/similar/${items.id}`)}
-                className="md:w-60 md:h-100 w-60 h-100 rounded-xl object-cover cursor-pointer  "
+                className="md:w-60 md:h-100 w-60  h-100 rounded-xl object-cover cursor-pointer  "
                 src={`https://image.tmdb.org/t/p/w1280${items.backdrop_path}`}
                 alt={`${items.title} Backdrop`}
               />
