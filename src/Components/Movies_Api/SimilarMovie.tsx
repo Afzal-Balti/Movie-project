@@ -79,12 +79,12 @@ function SimilarMovie() {
             </p>
             <div className="w-full flex flex-row gap-10">
               {movieDetail.production_companies?.map((item) => (
-                <div className="md:w-10 w-12 md:h-10 h-12 overflow-y-hidden ">
+                <div className="md:w-30 w-16 md:h-30 h-20 overflow-y-hidden md:py-0 py-4 ">
                   <img
                     className=" rounded-full "
                     src={`https://image.tmdb.org/t/p/w1280${item.logo_path}`}
                   ></img>
-                  <p className="py-3">{item.name}</p>
+                  <p className="md:py-3 py-5">{item.name}</p>
                 </div>
               ))}
             </div>
@@ -118,7 +118,7 @@ function SimilarMovie() {
         ))}
       </div>
 
-      <div className="w-full h-full flex flex-wrap overflow-x-scroll no-scrollbar gap-14 md:p-14 md:px-20 px-14  ">
+      <div className="w-full  h-full md:mb-4 mb-28 flex flex-wrap overflow-x-scroll no-scrollbar gap-14 md:p-14 md:px-20 px-14  ">
         <h2 className="w-full mt-24 font-bold text-2xl font-quicksand hover:underline decoration-red-500 decoration-6  cursor-pointer">
           Similar Movies
         </h2>
