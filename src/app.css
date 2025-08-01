@@ -15,7 +15,7 @@ body.light {
   }
 
   .ant-menu-overflow{
-     background-color: none !important;
+     background-color: none ;
   }
 
   :where(.css-dev-only-do-not-override-7t2xvq).ant-menu-light {
