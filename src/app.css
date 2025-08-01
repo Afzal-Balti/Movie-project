@@ -14,6 +14,11 @@ body.light {
     color: black;
   }
 
+  :where(.css-7t2xvq).ant-menu-light, :where(.css-7t2xvq).ant-menu-light>.ant-menu {
+    color: rgba(0, 0, 0, 0.88);
+    background: none !important;
+}
+
   .ant-menu-overflow{
      background-color: none !important;
   }
