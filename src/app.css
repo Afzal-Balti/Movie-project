@@ -14,6 +14,17 @@ body.light {
     color: black;
   }
 
+  body.light .navbarone {
+    background-color:none
+  }
+
+
+  body.dark .navbarone {
+    background-color:grey;
+   
+  }
+
+
   :where(.css-7t2xvq).ant-menu-light, :where(.css-7t2xvq).ant-menu-light>.ant-menu {
     color: rgba(0, 0, 0, 0.88);
     background: none !important;

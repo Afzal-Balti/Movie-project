@@ -16,7 +16,7 @@ const HeaderComp: React.FC<ChildProps> = ({ name }) => {
           </h2>
           <div className="md:w-20 w-10 md:h-10 h-10 border-double  ">
             <button
-              className="md:w-30 w-20  md:h-11 h-10 cursor-pointer border-2 border-solid  rounded-full  md:text-xl  text-sm"
+              className="md:w-30 w-20  md:h-11 h-10 hover:bg-blue-400 hover:text-white cursor-pointer border-2 border-solid  rounded-full  md:text-xl  text-sm"
               onClick={() =>
                 name === "Trending series" || name === "Top rated series"
                   ? navigate("/tvseries")

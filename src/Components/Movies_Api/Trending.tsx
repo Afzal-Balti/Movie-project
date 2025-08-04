@@ -14,7 +14,7 @@ function Trending() {
   return (
     <>
       <div className="w-full h-full p-15">
-        <HeaderComp name="Top rated series" />
+        <HeaderComp name="Top Rated Series" />
         <FiltersData data={data} />
       </div>
     </>

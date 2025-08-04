@@ -32,7 +32,7 @@ function MovieComp({ search }: ProspSearch) {
             !preResult.some((preItem) => preItem.id == item.id)
         );
 
-        return [...newDataItem, ...preResult];
+        return [...preResult, ...newDataItem];
       });
     }
   }, [data]);

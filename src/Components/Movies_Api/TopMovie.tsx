@@ -14,7 +14,7 @@ function TopMovie() {
   return (
     <>
       <div className="w-full h-full p-15">
-        <HeaderComp name="Top rated movies" />
+        <HeaderComp name="Top Rated Movies" />
         <FiltersData data={data} />
       </div>
     </>

@@ -54,22 +54,28 @@ function Navbar() {
         {show ? (
           <div className="flex md:flex-row   md:gap-10 gap-0   ">
             <div
-              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
-                scroll ? "text-2xl  text-gray-600" : "text-white text-2xl"
+              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer  ${
+                scroll
+                  ? "text-2xl text-gray-600 hover:text-black"
+                  : "text-2xl text-white "
               }`}
             >
               <NavLink to="/">Home</NavLink>
             </div>
             <div
-              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
-                scroll ? "text-2xl text-gray-600" : "text-2xl text-white"
+              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer  ${
+                scroll
+                  ? "text-2xl text-gray-600 hover:text-black"
+                  : "text-2xl text-white "
               }`}
             >
               <NavLink to="/movies">Movies</NavLink>
             </div>
             <div
-              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer hover:text-black ${
-                scroll ? "text-2xl text-gray-600" : "text-2xl text-white"
+              className={` hover:underline decoration-red-500 decoration-6 rounded-full cursor-pointer  ${
+                scroll
+                  ? "text-2xl text-gray-600 hover:text-black"
+                  : "text-2xl text-white "
               }`}
             >
               <NavLink to="/tvseries">Tv Series</NavLink>

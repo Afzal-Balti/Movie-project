@@ -38,7 +38,7 @@ const ReactQuery = () => {
       {data?.data?.results.slice(0, 4).map((movie: Movie) => (
         <div key={movie.id} className="relative w-full h-screen">
           <img
-            className="w-full h-full object-cover object-center "
+            className="w-full h-full  object-cover object-center "
             src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
             alt={`${movie.title} Backdrop`}
           />

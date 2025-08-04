@@ -15,7 +15,7 @@ const MovieApi = () => {
   return (
     <>
       <div className="md:w-full md:h-full w-full h-full  md:p-15 p-15">
-        <HeaderComp name="Trending movies" />
+        <HeaderComp name="Trending Movies" />
         <FiltersData data={data} />
       </div>
     </>

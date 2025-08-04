@@ -11,7 +11,7 @@ function Footer() {
           <div className="flex md:flex-row  justify-center md:gap-3 gap-3 md:py-4 py-10">
             <img
               src={LogoPic}
-              className="md:w-10 w-7 md:h-10 h-8 cursor-pointer rounded-full"
+              className="md:w-10 w-8 md:h-10 h-8 cursor-pointer rounded-full"
             ></img>
             <p className="md:text-3xl text-white ">tMovies</p>
           </div>
