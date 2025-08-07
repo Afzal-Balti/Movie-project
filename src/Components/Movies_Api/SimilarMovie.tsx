@@ -131,7 +131,7 @@ function SimilarMovie() {
                 alt={`${items.title} Backdrop`}
               />
 
-              <div className=" md:w-full w-50 m-4 text-center text-md ">
+              <div className=" md:w-50 overflow-y-hidden h-6 w-50 m-4 text-center text-md ">
                 <h3>{items.original_title}</h3>
               </div>
               <div data-aos="" className="w-full   ">

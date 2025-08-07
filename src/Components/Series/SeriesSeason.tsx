@@ -31,7 +31,7 @@ function SeriesSeason({ search }: Props) {
             !preResult.some((preItem) => preItem.id == item.id)
         );
 
-        return [...newDataItem, ...preResult];
+        return [...preResult, ...newDataItem];
       });
     }
   }, [data]);
